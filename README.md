@@ -1,29 +1,22 @@
-# 🧮 Simple C++ Calculator (V1.0)
+# 🧮 C++ CLI Calculator
 
-A command-line calculator built in C++ as part of my Semester 1 programming journey. 
-
-This project was built from scratch to understand the fundamentals of C++ before moving on to Object-Oriented Programming (OOP) in Semester 2. 
+A command-line based calculator built in C++. This project was created to practice modular programming, loop control flow, and basic data structuring.
 
 ## 🚀 Features
-*   **Basic Math Operations:** Addition, Subtraction, Multiplication, Division, and Modulo.
-*   **Interactive UI:** Uses ASCII art (raw string literals) for the terminal interface.
-*   **State Management:** Uses a `struct` to hold the math variables and user options.
-*   **Continuous Loop:** Asks the user if they want to continue or exit using a dedicated function.
+*   **Core Math Operations:** Addition, Subtraction, Multiplication, Division, and Modulo.
+*   **Continuous Loop:** Uses a `while(true)` game loop so the user can perform multiple calculations without restarting the program.
+*   **Clean Exit:** Includes a dedicated exit option (6) that safely breaks the loop.
+*   **Custom Terminal UI:** Features a stylized ASCII art interface for the menus.
+*   **Basic Error Handling:** Built-in protection against division by zero and modulo by zero crashes.
 
-## 🧠 What I Learned
-*   How to break code into separate functions instead of writing everything in `main()`.
-*   How to use `structs` to organize related data.
-*   **The Importance of Scope:** Learned that declaring variables inside functions makes it easier to manage memory (left a comment in the code about this!).
-*   **Logic Traps:** Accidentally used `&&` (AND) instead of `||` (OR) for string comparison, which taught me how conditional logic works behind the scenes.
+## 🧠 Technical Structure
+*   **Modular Functions:** The code is split into dedicated functions (`Additions`, `Subtractions`, etc.) to keep `main()` clean.
+*   **Data Structs:** Uses a `MathVariable` struct to group user inputs and results.
+*   **State Management:** The main loop captures the user's choice, routes it to the correct math function, and returns to the main menu.
 
-## 🐛 Known Bugs & To-Do (For Future Me)
-I am pushing this code as a checkpoint. I will fix these bugs tomorrow:
-*   [ ] **Infinite Loop Trap:** The `while` loop in `main()` interferes with the `AskToContinue()` function. I need to refactor the control flow.
-*   [ ] **Missing `cout`:** Forgot to add `std::cout` in the `else` statement when the user enters an invalid option.
-*   [ ] **Division by Zero:** Need to add validation to prevent the program from crashing if the user divides by `0`.
-*   [ ] **String Comparison:** Used `&&` instead of `||` in the `AskToContinue` function (Fixed in next commit).
-
-## 🛠️ How to Run
-1. Compile the code using g++:
+## 🛠️ How to Compile and Run
+1. Clone this repository.
+2. Open your terminal and navigate to the project directory.
+3. Compile the code:
    ```bash
    g++ main.cpp -o calculator
