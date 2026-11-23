@@ -1,4 +1,4 @@
-
+//simple calculator with seperate functions 1x times loops = post github 24 nov.
 #include <iostream>
 #include <string>
 
@@ -36,36 +36,6 @@ MathVariable MainDisplay() {
     return MV01;
 } 
 
-MathVariable AskToContinue() {
-
-    MathVariable MV08;;
-    int j = 0;
-
-    while (j < 1) {
-
-        std::cout << "Wish To Continue? [Y/N]: "; std::cin >> MV08.YNOptions;
-        std::cout << "\n";
-
-        if (MV08.YNOptions == "Y" && MV08.YNOptions == "y") {
-            MainDisplay();
-        }
-
-        else if (MV08.YNOptions == "N" && MV08.YNOptions == "n") {
-            std::cout << "THANKS YOU !" << "\n";
-            std::exit(0);
-        }
-
-        else {
-            "There Only had Y / N";
-        }
-
-        j++;
-    }
-
-    return MV08;
-
-}
-
 MathVariable Additions(double x, double y) {
     MathVariable MV00;
 
@@ -82,7 +52,6 @@ MathVariable Additions(double x, double y) {
     MV00.sum = x + y;
 
     std::cout << "Result: " << MV00.sum << "\n";
-    AskToContinue();
 
     return MV00;
 }
@@ -102,7 +71,6 @@ MathVariable Subtractions(double x, double y) {
     MV02.sum = x - y;
 
     std::cout << "Result: " << MV02.sum << "\n";
-    AskToContinue();
 
     return MV02;
 }
@@ -115,8 +83,6 @@ MathVariable Multiplications(double x, double y) {
 
     MV03.sum = x * y;
     std::cout << "[Result]: " << MV03.sum;
-
-    AskToContinue();
 
     return MV03;
 
@@ -136,7 +102,6 @@ MathVariable Divisions(double x, double y) {
     MV04.sum = x / y;
 
     std::cout << "Result: " << MV04.sum;
-    AskToContinue();
 
     return MV04;
 }
@@ -163,10 +128,10 @@ MathVariable Modulo(int x, int y) { // lesson if declare the variable inside the
         std::cout << "Value 2 Cannot Be Zero" << "\n";
     }
 
+    else {
     MV05.sum = x % y;
     std::cout << "[Result] [Reminder]: " << MV05.sum;
-
-    AskToContinue();
+    }
 
     return MV05;
 }
@@ -174,11 +139,9 @@ MathVariable Modulo(int x, int y) { // lesson if declare the variable inside the
  int main() {
     MathVariable MV09;
 
-    MV09 = MainDisplay();
+    while (true) {
 
-    int k = 0;
-
-    while (k < 3) {
+        MV09 = MainDisplay();
 
         if (MV09.options == 1) {
             Additions(MV09.x, MV09.y);
@@ -200,11 +163,16 @@ MathVariable Modulo(int x, int y) { // lesson if declare the variable inside the
             Modulo(MV09.x, MV09.y);
         }
 
-        else {
-            "There Only Had 1-7 Only";
+        else if (MV09.options == 6) {
+            std::cout << "Thanks You !" << "\n";
+            break;
         }
 
-        k++;
+        else {
+            std::cout << "There Only Had 1-7 Only";
+
+        }
+
       }
 
     return 0;
